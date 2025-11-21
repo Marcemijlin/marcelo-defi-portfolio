@@ -16,6 +16,15 @@ export default function Home() {
       </header>
 
       <main className="container">
+        <section id="about" style={{ marginBottom: 40 }}>
+  <h2>Sobre mí</h2>
+  <p>
+    Soy Marcelo Mijlin, analista de DeFi y researcher on-chain. Trabajo explorando cómo funcionan los protocolos, midiendo métricas clave, analizando mercados de predicción, RWAs y estructura de capital en cripto. 
+    Actualmente estoy construyendo dashboards avanzados en Dune y DeFiLlama, desarrollando smart contracts experimentales y creando contenido educativo enfocado en DeFi, mercados y data on-chain. 
+    Mi objetivo es combinar análisis cuantitativo, diseño de incentivos y data en vivo para entender y explicar cómo se mueve la liquidez en Web3.
+  </p>
+</section>
+
         <section>
           <h2>Proyectos destacados</h2>
           <div className="cards">
