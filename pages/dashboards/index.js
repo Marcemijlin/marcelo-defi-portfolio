@@ -16,7 +16,7 @@ export default function Dashboard() {
       </h1>
 
       <iframe
-        src="https://dune.com/embeds/3659624/6147381/"
+        src="https://dune.com/marcemijlin/marcelo-mijlin"
         width="100%"
         height="900px"
         style={{
