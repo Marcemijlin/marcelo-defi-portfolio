@@ -1,68 +1,37 @@
-import DashboardEmbed from '../../components/DashboardEmbed'
-import { useEffect, useState } from 'react'
+import Head from "next/head";
 
 export default function Dashboards() {
-  const [protocols, setProtocols] = useState([])
-
-  useEffect(()=>{
-    async function load(){
-      try{
-        const res = await fetch('https://api.llama.fi/protocols');
-        const data = await res.json();
-        const sorted = (Array.isArray(data) ? data : []).sort((a,b)=> (b.tvl || 0) - (a.tvl || 0)).slice(0,8);
-        setProtocols(sorted);
-      }catch(e){
-        console.error(e);
-      }
-    }
-    load();
-  },[])
-
   return (
-    <div className="page">
-      <header className="subhero">
-        <div className="container">
-          <h1>Dashboards</h1>
-          <p className="lead">Embeds y datos en vivo — ejemplos rápidos.</p>
-        </div>
-      </header>
+    <>
+      <Head>
+        <title>Dashboards | Marcelo Mijlin</title>
+      </Head>
 
-      <main className="container">
-        <section>
-          <h2>Dune embed (ejemplo)</h2>
-          {/* Reemplazá el src por el embed real de tu query Dune */}
-          <DashboardEmbed src="https://dune.com/marcemijlin/marcelo-mijlin?embed=true" title=“Dashboard Analytics – Marcelo Mijlin” />
-            <section style={{ marginTop: 24 }}>
-  <h2>Mis Dashboards</h2>
-  <div className="cards">
-    <article className="card">
-      <h3>Mi Dashboard Principal en Dune</h3>
-      <p>Análisis on-chain de mis métricas favoritas, TVL, volumen, liquidez y patrones de usuario.</p>
-      <a className="small-btn" href="https://dune.com/marcemijlin/marcelo-mijlin" target="_blank" rel="noopener noreferrer">Ver en Dune</a>
-    </article>
-  </div>
-</section>
+      <div className="container" style={{ paddingTop: 40, paddingBottom: 60 }}>
+        <h1 style={{ marginBottom: 10 }}>Dashboards</h1>
+        <p style={{ marginBottom: 30 }}>
+          Mis dashboards de análisis on-chain, métricas DeFi y datos en vivo.
+        </p>
 
+        {/* CARD DE DASHBOARD */}
+        <section style={{ marginBottom: 40 }}>
+          <h2>Mis dashboards</h2>
 
-        </section>
+          <div style={{
+            display: "flex",
+            gap: "20px",
+            flexWrap: "wrap",
+            marginTop: "20px"
+          }}>
+            <div style={{
+              background: "#0d1b2a",
+              padding: "20px",
+              borderRadius: "12px",
+              width: "100%",
+              maxWidth: "360px",
+              border: "1px solid #1f2d3d"
+            }}>
+              <h3 style={{ marginBottom: "10px" }}>Dashboard principal en Dune</h3>
+              <p style={{ fontSize: "14px", opacity: 0.85, marginBottom: "20px" }}>
+                Panel con métricas DeFi, volumen, TVL, liquidez y m
 
-        <section style={{marginTop:24}}>
-          <h2>DeFiLlama — Top protocols (live)</h2>
-          <div className="protocols-grid">
-            {protocols.length === 0 && <p>Cargando datos...</p>}
-            {protocols.map(p => (
-              <div key={p.name} className="protocol-card">
-                <img src={p.logo || '/logo.svg'} alt={p.name} className="protocol-logo" />
-                <div className="protocol-info">
-                  <strong>{p.name}</strong>
-                  <div className="meta">TVL: ${p.tvl ? Number(p.tvl).toLocaleString() : '—'}</div>
-                  <div className="meta small">Chain: {p.chain || '—'}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
-  )
-}
