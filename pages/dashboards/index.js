@@ -31,7 +31,19 @@ export default function Dashboards() {
         <section>
           <h2>Dune embed (ejemplo)</h2>
           {/* Reemplazá el src por el embed real de tu query Dune */}
-          <DashboardEmbed src="https://dune.com/embeds/12345/67890" title="Dune example" />
+          <DashboardEmbed src="https://dune.com/marcemijlin/marcelo-mijlin?embed=true" title=“Dashboard Analytics – Marcelo Mijlin” />
+            <section style={{ marginTop: 24 }}>
+  <h2>Mis Dashboards</h2>
+  <div className="cards">
+    <article className="card">
+      <h3>Mi Dashboard Principal en Dune</h3>
+      <p>Análisis on-chain de mis métricas favoritas, TVL, volumen, liquidez y patrones de usuario.</p>
+      <a className="small-btn" href="https://dune.com/marcemijlin/marcelo-mijlin" target="_blank" rel="noopener noreferrer">Ver en Dune</a>
+    </article>
+  </div>
+</section>
+
+
         </section>
 
         <section style={{marginTop:24}}>
